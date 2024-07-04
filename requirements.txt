@@ -1,4 +1,5 @@
 anyio
+apt-xapian-index
 argon2-cffi
 argon2-cffi-bindings
 arrow
@@ -11,6 +12,7 @@ bcrypt
 beautifulsoup4
 bleach
 blinker
+Brlapi
 Brotli
 cachetools
 ccsm
