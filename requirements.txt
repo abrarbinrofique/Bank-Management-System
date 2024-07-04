@@ -1,5 +1,4 @@
 anyio
-apt-xapian-index
 argon2-cffi
 argon2-cffi-bindings
 arrow
