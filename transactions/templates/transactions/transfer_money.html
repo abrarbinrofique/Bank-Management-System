@@ -1,0 +1,55 @@
+{% extends 'base.html' %} 
+{% block head_title %}{{ title }}{% endblock %} 
+{% block content %}
+{% load widget_tweaks %}
+
+
+{% load crispy_forms_tags %}
+
+<div class="container mx-auto mt-10">
+    <div class="flex justify-center">
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <div class="bg-blue-600 text-white text-center py-4">
+                    <h2 class="text-xl font-semibold text-black">Money Transfer</h2>
+                   
+                </div>
+                <div class="p-6">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        
+                        {% if form.non_field_errors %}
+                            <div class="bg-red-500 text-white p-4 rounded mb-4">
+                                {% for error in form.non_field_errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        
+                        <div class="space-y-4">
+                            {% for field in form %}
+                                <div>
+                                    {{ field.label_tag }}
+                                    {{ field|add_class:"block w-full p-2 border  border-gray-600 rounded mt-1" }}
+                                    {% if field.errors %}
+                                        <p class="text-red-500 text-sm mt-1">
+                                            {{ field.errors|striptags }}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mt-6 flex justify-center">
+                            <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded hover:bg-green-600">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
